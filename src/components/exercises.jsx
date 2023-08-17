@@ -30,8 +30,8 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
     },[bodyPart])
 
     return (
-        <div id='exercises' className=' p-20 mt-[20px] md:mt-[80px] '>  
-            <p className=' text-4xl mb-4 p-2'>Shwoing Results</p>
+        <div id='exercises' className=' p-20 mt-[20px] md:mt-[80px]  '>  
+            <p className=' text-4xl mb-4 p-2 '>Shwoing Results</p>
             <div className=' flex  justify-center flex-wrap gap-[50px] lg:gap-[110px] '>
                 {currentExercises.map((exercise, index)=>(
                    <ExerciseCard key={index} exercise={exercise} />

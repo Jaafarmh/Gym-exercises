@@ -2,7 +2,9 @@ body {
     font-family: 'Josefin Sans';
     background-color: #FFFAFB;
   }
- 
+ html{
+  scroll-behavior: smooth;
+ }
   
   * {
     padding: 0px;
