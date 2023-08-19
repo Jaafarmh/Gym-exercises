@@ -1,35 +1,27 @@
-import { Box, Button, Typography } from '@mui/material';
-import HeroBannerImage from '../assets/images/banner.png'
+import HeroBannerImage from '../assets/images/banner.jpg'
 
 const HeroBanner = () => {
     return (
-        <Box sx={{
-            mt:{lg:'212px', xs:'70px'},
-            ml:'50px'
-        }} position='relative' Typography='20px'>
-            <Typography color='#ff2625' fontWeight='600' fontSize='26px'>
+        <div className=' relative  flex flex-col items-center md:items-start' >
+           <div className=' flex flex-col gap-y-4 mb-4 ml-2 mt-4  md:mt-60 '>
+           <p  className='  text-blue-400 text-5xl font-semibold '>
                 Fitness Club
-            </Typography>   
-            <Typography  fontWeight='700'
-            sx={{
-                fontSize :{lg:'44px',xs:'40px'}
-            }}>
-                Sweat, Smile <br /> and Repeat
-            </Typography>   
-            <Typography  fontSize='22px' mb={4}>
+            </p>   
+            <p className='text-2xl font-bold  capitalize'>
+                no pain, no gain
+            </p>   
+            <p className=' text-2xl font-bold '>
                 Check out the most effective exercises
-            </Typography>
-            
-            <Button variant='contained' color='error' href='#exercises'   sx={{ backgroundColor:'#ff2625', p:'10px' }} >Explore Exercises</Button>
-            <Typography fontWeight={200} fontSize={200} color='#ff2625' mt={5}
-            sx={{
-                opacity:'0.1',
-                display:{md:'block ', xs:'none'}
-            }} >
-                Exercise
-            </Typography>
-            <img src={HeroBannerImage} alt="banner" className='hero-banner-img'/>
-        </Box>
+            </p>
+           </div>
+                      
+            <a className=' bg-blue-400 hover:bg-blue-600 p-2 ml-2 rounded-md text-lg text-white mt-4 ' 
+            href='#exercises'>
+            Explore Exercises
+            </a>
+         
+            <img src={HeroBannerImage} alt="banner" className=' hidden md:block absolute top-0 h-[500px] w-screen opacity-70 -z-10 '/>
+        </div>
     );
 }
 

@@ -1,4 +1,3 @@
-import { TextField } from "@mui/material";
 import { useEffect, useRef, useState } from "react";
 import { fetchData ,exerciseOptions} from "../Utils/fetchData";
 import HorizontalScrollBar from "./horizontalScrollBar";
@@ -43,42 +42,35 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
         
     
     return (
-        <div className=" mt-[50px] p-[20px] flex flex-col justify-center items-center"
+        <div className=" mt-[60px] p-[20px] flex flex-col justify-center items-center"
          >
-           <p className=" text-3xl font-bold mb-8" >
+           <p className=" text-3xl font-bold mb-8 text-blue-400 " >
                 Awesome Exercises You Should Know
            </p>
 
-        <div position='relative' mb='70px'>
-            <TextField 
-            sx={{
-                input:{ border:'none', borderColor:'yellow'},
-                width:{lg:'1100px',md:'600px', xs:'350px'},
-                backgroundColor:'#fff'
-            }}
-           
-            height='80px'
-            value={search}
-            onChange={(e) =>setSearch(e.target.value.toLocaleLowerCase())}
+        <div className=" relative flex items-center justify-center w-full">
+            <input className=" w-screen md:w-1/2  h-12 p-2 outline-none border-2 border-blue-400 rounded-l-md  "
             placeholder="Search Exercises"
             type="text"
+            value={search}
+            onChange={(e) =>setSearch(e.target.value.toLocaleLowerCase())}
             />
-            
+           
             <button 
-            className=" bg-[#ff2625] h-14 p-4  text-xl text-white rounded-md  hover:bg-red-600"
+            className=" h-12 bg-blue-400 px-2 text-xl text-white  hover:bg-blue-600 rounded-r-md"
             onClick={handleSearch}>
                 Search
             </button>
         </div>
 
-        <div  className="relative flex items-center w-full mt-4  group  " >
-             <MdChevronLeft onClick={slideLeft} size={40} className=" bg-[#ff2625] opacity-50 rounded-full absolute hidden  group-hover:block left-0 cursor-pointer hover:opacity-100 z-10" />
+        <div  className="relative flex items-center w-full mt-4 group  " >
+             <MdChevronLeft onClick={slideLeft} size={40} className=" bg-blue-400 opacity-60 rounded-full absolute hidden  group-hover:block hover:opacity-100 left-0 cursor-pointer  z-10" />
 
             <div ref={slider} className=" overflow-x-scroll scroll-smooth">
             <HorizontalScrollBar  data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
             </div>
                
-             <MdChevronRight onClick={slideRight} size={40} className=" bg-[#ff2625] opacity-50 rounded-full absolute hidden group-hover:block  hover:opacity-100 cursor-pointer right-0 z-10 " />
+             <MdChevronRight onClick={slideRight} size={40} className=" bg-blue-400 opacity-60 rounded-full absolute hidden group-hover:block hover:opacity-100 cursor-pointer right-0 z-10 " />
            </div>
     </div>
     );

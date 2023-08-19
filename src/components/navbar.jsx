@@ -1,31 +1,20 @@
 import {Link} from 'react-router-dom'
-import {Stack} from '@mui/material'
-import Logo from '../assets/images/logo.png'
+import Logo from '../assets/images/fitness.png'
 
 
 const Navbar = () => {
     return (
-        <Stack 
-        direction='row'
-        sx={{gap : {sm:'122px', xs:'40px'}, mt:{ sm:'32px', xs:'20px'}}}
-        px='20px'
-        >
+        <div id='home' className=' flex items-center bg-slate-300 border-2 border-b-blue-400 rounded-sm h-20 gap-x-14 py-2 z-10 ' >
             <Link to='/' >
-                <img src={Logo} alt='logo' style={{width:'48px', height:'48px',margin:'0 20px' }} />
+                <img  src={Logo} alt='logo' className='w-20 p-2' />
             </Link>
-            <Stack 
-            direction= 'row'
-            gap='40px'
-            fontSize='24px'
-            alignItems='end'
-            >
-                <Link to='/' style={{textDecoration:'none', color:'#3A1212', borderBottom:'3px solid red'}}>
+            <div className=' flex gap-x-4 text-2xl  ' >
+                <Link className=' hover:bg-blue-300 p-2 rounded-md' to='/' >
                     Home
                 </Link>
-                <a href="#exercises" style={{textDecoration: 'none', 
-                color:'#3A1212'}}>Exercises</a>
-            </Stack>
-        </Stack>
+                <a className='hover:bg-blue-300 p-2 rounded-md' href="#exercises">Exercises</a>
+            </div>
+        </div>
     );
 }
 

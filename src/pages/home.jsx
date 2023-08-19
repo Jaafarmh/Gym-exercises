@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+
 import HeroBanner from '../components/heroBanner'
 import SearchExercises from '../components/searchExercises'
 import Exercises from '../components/exercises'
@@ -11,7 +11,7 @@ const Home = () => {
     console.log(bodyPart)
 
     return (
-       <Box>
+       <>
         <HeroBanner />
         <SearchExercises
         setExercises={setExercises}
@@ -23,7 +23,7 @@ const Home = () => {
         setExercises={setExercises}
         bodyPart={bodyPart}
          />
-       </Box>
+       </>
        
     );
 }
