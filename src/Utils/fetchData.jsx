@@ -4,6 +4,7 @@ export const exerciseOptions = {
         'X-RapidAPI-Key': '57a2c411f9msh6fdddee94305e97p14ecd2jsnc2800ac0b163',
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
     }
+    
   };
   export const youtubeOptions = {
     method: 'GET',

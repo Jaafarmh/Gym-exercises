@@ -2,14 +2,18 @@ import { Pagination } from "@mui/material";
 import ExerciseCard from "./exerciseCard";
 import { useEffect, useState } from "react";
 import { exerciseOptions, fetchData } from "../Utils/fetchData";
+import { useContext } from "react";
+import { ExerciseContext } from "../Context/exerciseContext";
 
-const Exercises = ({exercises, setExercises, bodyPart}) => {
+const Exercises = () => {
+    const {bodyPart,exercises,setExercises} = useContext(ExerciseContext)
+    
     const [currentPage, setCurrentPage ] = useState(1)
     const exercisesPerPage = 9
     const indexOfLastExercise = currentPage * exercisesPerPage
     const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage 
 
-    const currentExercises = exercises.slice(indexOfFirstExercise, indexOfLastExercise)
+    const currentExercises = exercises?.slice(indexOfFirstExercise, indexOfLastExercise)
 
     const paginate = (e, value)=>{
             setCurrentPage(value)
@@ -17,13 +21,16 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
     }
 
     useEffect(()=>{
+        console.log(bodyPart)
         const fetchExercisesData = async ()=>{
             let exercisesData = []
             if(bodyPart === 'all'){
                 exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises',exerciseOptions)
             } else {
-            exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,exerciseOptions)
+                exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,exerciseOptions)
+              
             }
+            console.log(exercisesData)
             setExercises(exercisesData)
         }
         fetchExercisesData()
@@ -33,12 +40,12 @@ const Exercises = ({exercises, setExercises, bodyPart}) => {
         <div id='exercises' className=' p-20 mt-[20px] md:mt-[80px]  '>  
             <p className=' text-4xl mb-4 p-2 '>Shwoing Results</p>
             <div className=' flex  justify-center flex-wrap gap-[50px] lg:gap-[110px] '>
-                {currentExercises.map((exercise, index)=>(
+                {currentExercises?.map((exercise, index)=>(
                    <ExerciseCard key={index} exercise={exercise} />
                 ))}
             </div>
             <div className=" flex mt-16 justify-center items-center">
-                {exercises.length > 9 && (
+                {exercises?.length > 9 && (
                     <Pagination
                     color="standard"
                     shape="rounded"

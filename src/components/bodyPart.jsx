@@ -9,8 +9,11 @@ import upperarmsIcon from '../assets/icons/upperarms.jpg'
 import upperlegsIcon from '../assets/icons/upperlegs1.webp'
 import lowerlegsIcon from '../assets/icons/lowerlegs.webp'
 import allIcon from '../assets/icons/all.png'
+import { useContext } from 'react'
+import { ExerciseContext } from '../Context/exerciseContext'
 
-const BodyPart = ({item, bodyPart, setBodyPart}) => {
+const BodyPart = ({item}) => {
+    const {bodyPart,setBodyPart} = useContext(ExerciseContext)
     const imageSources = {
         
         back: backIcon,
@@ -24,6 +27,8 @@ const BodyPart = ({item, bodyPart, setBodyPart}) => {
         lower_legs: lowerlegsIcon,
         all: allIcon,
     };
+
+
     const itemKey = item.replace(' ', '_').toLowerCase();
     const custom = item === 'waist' ? 'hidden' : ''
     return (
@@ -32,7 +37,7 @@ const BodyPart = ({item, bodyPart, setBodyPart}) => {
          `}
          onClick={()=>{
             setBodyPart(item)
-            
+            console.log(item)
          }} > 
          
             <img 

@@ -1,13 +1,14 @@
 
+
 import BodyPart from './bodyPart';
 
 
-const HorizontalScrollBar = ({data,bodyPart,setBodyPart}) => {
-  
+const HorizontalScrollBar = ({data}) => {
+ 
     return (
         <div className=' flex w-fit h-fit  '>
         {data.map((item, id)=>
-            <BodyPart key={id} item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />               
+            <BodyPart key={id} item={item}/>               
          )}
         </div>
      

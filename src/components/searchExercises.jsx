@@ -1,17 +1,18 @@
-import { useEffect, useRef, useState } from "react";
-import { fetchData ,exerciseOptions} from "../Utils/fetchData";
-import HorizontalScrollBar from "./horizontalScrollBar";
+import { useEffect, useRef, useState } from "react"
+import { fetchData ,exerciseOptions} from "../Utils/fetchData"
+import HorizontalScrollBar from "./horizontalScrollBar"
 import {MdChevronLeft,MdChevronRight} from 'react-icons/md'
+import { ExerciseContext } from '../Context/exerciseContext'
+import { useContext } from 'react'
+const SearchExercises = () => {
 
-const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
-
+    const {setExercises} = useContext(ExerciseContext)
     const [search, setSearch] = useState('')
     const [bodyParts, setBodyParts] = useState([])
 
     useEffect(()=>{
         const fetchExercisesData = async ()=>{
          const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions)
-
 
          setBodyParts(['all', ...bodyPartsData])
          
@@ -67,7 +68,7 @@ const SearchExercises = ({bodyPart, setBodyPart, setExercises}) => {
              <MdChevronLeft onClick={slideLeft} size={40} className=" bg-blue-400 opacity-60 rounded-full absolute hidden  group-hover:block hover:opacity-100 left-0 cursor-pointer  z-10" />
 
             <div ref={slider} className=" overflow-x-scroll scroll-smooth">
-            <HorizontalScrollBar  data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            <HorizontalScrollBar  data={bodyParts} />
             </div>
                
              <MdChevronRight onClick={slideRight} size={40} className=" bg-blue-400 opacity-60 rounded-full absolute hidden group-hover:block hover:opacity-100 cursor-pointer right-0 z-10 " />
